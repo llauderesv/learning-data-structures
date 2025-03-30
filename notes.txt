@@ -1,0 +1,9 @@
+Stack Use cases
+
+1. If you wanted to have an undo / redo operation in your system
+  - If the user is typing something and debounce it, push to the stack.
+  - If they undo it. pop the value to the stack to get it, and push it to redo stack.
+  - If they redo it, pop the value to the stack again and push it to undo stack. vice / versa
+
+2. Having a linear history, like browser history.
+  - If you navigate to links, pushed to the stack and pop it when pressing back
