@@ -7,18 +7,16 @@ class LinkedNode {
 
 class LinkedList {
   constructor(key) {
-    this.head = new LinkedNode(key);
+    const initialNode = new LinkedNode(key);
+    this.head = initialNode;
+    this.tail = initialNode;
     this.next = null;
   }
 
   add(value) {
     const newNode = new LinkedNode(value);
-
-    let temp = this.head;
-    while (temp.next !== null) {
-      temp = temp.next;
-    }
-    temp.next = newNode;
+    this.tail.next = newNode;
+    this.tail = newNode;
     return newNode;
   }
 
@@ -50,11 +48,7 @@ class LinkedList {
       return;
     }
 
-    let temp = this.head;
-    while (temp.next && temp.next.value !== value) {
-      temp = temp.next;
-    }
-
+    let temp = this.search(value);
     if (!temp.next) {
       console.log('Value not found');
       return;
@@ -67,6 +61,7 @@ class LinkedList {
 const linkedList = new LinkedList(1);
 linkedList.add(2);
 linkedList.add(3);
+linkedList.add(4);
 linkedList.printList();
 console.log(linkedList.search(1));
 linkedList.delete(2);
