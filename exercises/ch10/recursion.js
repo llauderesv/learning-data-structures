@@ -1,0 +1,5 @@
+function blah() {
+  blah();
+}
+
+blah();
