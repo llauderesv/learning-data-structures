@@ -1,4 +1,4 @@
-class LinkedNode {
+export class LinkedNode {
   data;
   nextNode;
   constructor(data) {
@@ -51,6 +51,10 @@ class LinkedList {
     this.lastNode.nextNode = newNode;
     this.lastNode = newNode;
     return newNode;
+  }
+
+  enqueue(value) {
+    this.insert(value);
   }
 
   indexOf(value) {
@@ -166,9 +170,9 @@ list.insert('B');
 list.insert('C');
 list.reverse();
 
-for (const node of list) {
-  console.log(node);
-}
+// for (const node of list) {
+//   console.log(node);
+// }
 
 // console.log(list.read(3));
 // console.log(list.indexOf('once'));
