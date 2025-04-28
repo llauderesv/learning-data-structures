@@ -17,11 +17,15 @@ export function binarySearch2(length, compareToKey) {
 }
 
 function compareTo(key) {
-  return (index) => {
-    console.log(array[index],key)
+  return index => {
     return array[index] - key;
   };
 }
-const array = [1, 4, 5, 7, 55, 59, 60, 61, 64, 69];
 
-console.log(binarySearch2(10, compareTo(55)));
+function binarySearch(array, key, comparator) {
+  return binarySearch2(array.length, i => comparator(array[i], key));
+}
+
+const array = [1, 4, 5, 7, 55, 59, 60, 61, 64, 69];
+// console.log(binarySearch2(array.length, compareTo(69)));
+console.log(binarySearch(array, 5, (a, b) => a - b));
